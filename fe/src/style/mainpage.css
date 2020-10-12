@@ -1,0 +1,71 @@
+.main-page {
+    width: 100%;
+    height: 650px;
+    background: #f0f2f5;
+}
+
+.main-page .side-content {
+    width: 14%;
+    height: 95%;
+    background: #ffffff;
+    margin-left: 0.5%;
+    margin-top: 1%;
+    float:left;
+    padding: 1% 1% 1% 1%;
+}
+
+.main-page .step-content {
+    width: 83%;
+    height: 13%;
+    background: #ffffff;
+    margin-left: 1%;
+    margin-top: 1%;
+    float:left;
+    padding: 1% 1% 1% 1%;
+}
+
+.main-page .main-content {
+    width: 83%;
+    height: 80%;
+    background: #ffffff;
+    margin-left: 1%;
+    margin-top: 1%;
+    padding: 1% 1% 1% 1% ;
+    float:left;
+}
+
+.main-page .main-content .result-panel {
+    width: 100%;
+    height: 85%;
+    background: #f0f2f5;
+    margin-top: 1.5%;
+    padding: 0.3% 2% 0.3% 2% ;
+    float:left;
+}
+
+.main-page .main-content .result-panel-inner {
+    width: 100%;
+    height: 93%;
+    background: #fff;
+    margin-top: 1.5%;
+    padding: 1% 1% 1% 1% ;
+    float:left;
+}
+
+.table-container {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+}
+
+.data-list-container {
+    width: 100%;
+    height: 50%;
+    background: #f6f6f6;
+}
+
+.chart-container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
