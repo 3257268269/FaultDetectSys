@@ -58,6 +58,7 @@ const FaultDetectSys = () => {
         status : 0 , //当前状态 0.数据加载完成 1.缺失值填充 2.降采样 3.序列分解 4.分类 5.故障检测
         seqLength : 233,
         lossLength : 567,
+        tabActivekey : 1
         stepData : [
           [...],
           [...]
@@ -68,7 +69,6 @@ const FaultDetectSys = () => {
   const [rootData, setRootData] = useState([]);                           //所有数据
   const [curDataIndex, setCurDataIndex] = useState(-1);                   //当前数据索引
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);    //下一步按钮是否禁用
-  const [tabActivekey, setTabActivekey] = useState('0');                //当前是哪个标签页
 
   useEffect(() => {})
 
@@ -89,6 +89,7 @@ const FaultDetectSys = () => {
       "status" : 0,
       "seqLength" : len,
       "lossLength" : lossLen,
+      "tabActivekey" : '0',
       "stepData" : [data]
     };
     setRootData([...rootData, obj]);
@@ -106,8 +107,8 @@ const FaultDetectSys = () => {
     let responseData = requestData;//todo 与后端交互
     let temp = [...rootData]
     temp[curDataIndex].status += 1;
+    temp[curDataIndex].tabActivekey = temp[curDataIndex].status.toString();
     temp[curDataIndex].stepData.push(responseData);
-    setTabActivekey(temp[curDataIndex].status.toString());
     setRootData(temp);
     setNextButtonDisabled(false);
   }
@@ -127,6 +128,12 @@ const FaultDetectSys = () => {
 
   const dataSelect = (o) => {
     setCurDataIndex(o.key);
+  }
+
+  const tabClick = (k) => {
+    let temp = [...rootData]
+    temp[curDataIndex].tabActivekey = k; 
+    setRootData(temp);
   }
 
   return (
@@ -219,7 +226,7 @@ const FaultDetectSys = () => {
                   </Row>
                   <div className="result-panel">
                     <div className="result-panel-inner">
-                      <Tabs onTabClick={ k => setTabActivekey(k) } activeKey={ tabActivekey } type="card">
+                      <Tabs onTabClick={ tabClick } activeKey={ rootData[curDataIndex].tabActivekey } type="card">
                         {
                           rootData[curDataIndex].stepData.map((item, index) => {
                               let stp = stepsRef[index];
