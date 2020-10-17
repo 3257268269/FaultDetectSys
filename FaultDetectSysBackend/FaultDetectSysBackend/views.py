@@ -98,6 +98,12 @@ def seqResolve(request):
             [14,169.1120697],
             [15,169.4704666],
         ]
+        data = [
+           119.5227859,
+           119.8929321,
+           121.5423807,
+        
+        ]
         result = seqResolveCore(data)
         print(result)
 

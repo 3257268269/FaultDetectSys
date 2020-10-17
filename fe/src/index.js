@@ -113,19 +113,6 @@ const FaultDetectSys = () => {
     setNextButtonDisabled(false);
   }
 
-  const treeData = [ {
-    title: "source1.csv",
-    key: 1,
-  },
-  {
-    title: "source2.csv",
-    key: 2,
-  },
-  {
-    title: "source3.csv",
-    key: 3,
-  }]
-
   const dataSelect = (o) => {
     setCurDataIndex(o.key);
   }
