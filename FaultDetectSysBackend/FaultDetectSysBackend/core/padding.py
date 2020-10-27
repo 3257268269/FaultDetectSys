@@ -1,5 +1,7 @@
 def paddingCore(data):
-    return data
+    padding_num = 119.8888
+    for i in range(len(data)):
+        if data[i][1] == None:
+            data[i][1] = padding_num
 
-# 参考文档：https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.DecomposeResult.html#statsmodels.tsa.seasonal.DecomposeResult 
-# 参考文档参见最下方Properties
+    return data

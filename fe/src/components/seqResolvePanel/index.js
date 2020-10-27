@@ -7,17 +7,30 @@ import '../../style/seqResolvePanel.css';
 const SeqResolvePanel = ( prop ) => {
 
   const { data } = prop;
+  const { responseData } = data;
+  const { resid, seasonal, trend } = responseData;
+
+  console.log(resid);
 
   const option = {
     title: {
       text: '序列分解后的数据',
-      subtext: '简要描述',
+      subtext: '',
       left: 'center',
       align: 'right'
     },
     tooltip: {
       trigger: 'axis'
     },
+
+    legend: {
+      data: ['resid', 'seasonal', 'trend'],
+      type: 'scroll',
+      orient: 'vertical',
+      right: 10,
+      top: 20,
+      bottom: 20,
+   },
     dataZoom: [
       {
         show: true,
@@ -28,14 +41,33 @@ const SeqResolvePanel = ( prop ) => {
     ],
     xAxis: {
         type: 'category',
-        data: Array.from([...Array(data.length)].keys())
+        data: Array.from([...Array(resid.length)].keys())
     },
     yAxis: {
         type: 'value'
     },
     series: [
       {
-        data:  data.map(v => parseFloat(v.data[1])),
+        name: 'resid',
+        data: resid.map(v => parseFloat(v[1])),
+        type: 'line',
+        lineStyle: {
+          width: 2
+        },
+        symbol: 'none',
+      },
+      {
+        name: 'seasonal',
+        data: seasonal.map(v => parseFloat(v[1])),
+        type: 'line',
+        lineStyle: {
+          width: 2
+        },
+        symbol: 'none',
+      },
+      {
+        name: 'trend',
+        data: trend.map(v => parseFloat(v[1])),
         type: 'line',
         lineStyle: {
           width: 2
@@ -44,6 +76,8 @@ const SeqResolvePanel = ( prop ) => {
       },
     ]
   };
+
+  console.log(option);
 
   return (
     <div className="seqResolve-panel"> 

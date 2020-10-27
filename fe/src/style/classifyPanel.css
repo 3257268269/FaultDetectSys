@@ -1,0 +1,13 @@
+.chart-div {
+    width: 60%;
+    height:100%;
+    float:left;
+    border-width: 2px;
+    border-color: red;
+}
+
+.classify-result-div {
+    width: 38%;
+    height:100%;
+    float:left;
+}

@@ -7,11 +7,12 @@ import '../../style/paddingPanel.css';
 const PaddingPanel = ( prop ) => {
 
   const { data } = prop;
+  const { responseData } = data;
 
   const option = {
     title: {
       text: '缺失值填充后的数据',
-      subtext: '简要描述',
+      subtext: '',
       left: 'center',
       align: 'right'
     },
@@ -28,14 +29,14 @@ const PaddingPanel = ( prop ) => {
     ],
     xAxis: {
         type: 'category',
-        data: Array.from([...Array(data.length)].keys())
+        data: Array.from([...Array(responseData.length)].keys())
     },
     yAxis: {
         type: 'value'
     },
     series: [
       {
-        data:  data.map(v => parseFloat(v.data[1])),
+        data:  responseData.map(v => parseFloat(v[1])),
         type: 'line',
         lineStyle: {
           width: 2
